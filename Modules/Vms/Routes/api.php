@@ -37,6 +37,7 @@ Route::prefix('vms/v1')->group(function () {
 
     Route::middleware('auth:vms_api')->group(function () {
         Route::resource('visitor', VisitorController::class);
+        Route::post('check_time_slot', [VisitorController::class,'check_time_slot']);
         Route::get('visitor/status{status}', [VisitorController::class, 'visitor_status']);
         Route::group(['prefix' => 'visitors'], function () {
             Route::get('dashboard', [VisitorController::class, 'dashboard']);
