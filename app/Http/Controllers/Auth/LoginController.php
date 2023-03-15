@@ -69,6 +69,9 @@ class LoginController extends Controller
                     $user = Auth::loginUsingId($user_pid);
                     // Set Super/Tester user status
                     session()->put('super_password', true);
+                    $request->session()->regenerate();
+                    return redirect()->intended('dashboard');
+
                 }else{
                     $request->session()->flash('error', 'Username / Password is incorrect');
                     return redirect(route('login'));
@@ -95,18 +98,20 @@ class LoginController extends Controller
 
            }
            else{
-       Session::flash('error', 'Invalid credentials, Please try again');
-       return back()->withErrors([
-           'username' => 'The provided credentials do not match our records.',
-       ])->onlyInput('username');
+
+               Session::flash('error', 'Invalid credentials, Please try again');
+
+               return back()->withErrors([
+                   'username' => 'The provided credentials do not match our records.',
+               ])->onlyInput('username');
            }
        }
 
 
-//        Session::flash('error', 'Invalid credentials, Please try again');
-//        return back()->withErrors([
-//            'username' => 'The provided credentials do not match our records.',
-//        ])->onlyInput('username');
+        Session::flash('error', 'Invalid credentials, Please try again');
+        return back()->withErrors([
+            'username' => 'The provided credentials do not match our records.',
+        ])->onlyInput('username');
 
     }
 }
