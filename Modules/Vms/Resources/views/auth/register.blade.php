@@ -246,8 +246,11 @@
     <script src="{{ asset('assets/js/pages-auth.js') }}"></script>
 
 
-    <script type="text/javascript" src="{{ asset('assets/vendor/webcamjs/webcam.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/vendor/instascan/instascan.min.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('assets/vendor/webcamjs/webcam.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/vendor/instascan/instascan.min.js') }}"></script> -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <!-- Configure a few settings and attach camera -->
     <script language="JavaScript">
         Webcam.set({

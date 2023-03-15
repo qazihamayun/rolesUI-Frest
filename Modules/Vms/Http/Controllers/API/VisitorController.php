@@ -12,15 +12,37 @@ use Auth;
 use Hash;
 use Modules\Vms\Http\Requests\API\Visitor\CreateStoreRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Carbon;
+
 
 class VisitorController extends Controller
 {
 
-    
+
+    public function check_time_slot(Request $request)
+    {
+
+        $time = $request->visiting_time;
+        $startTime = Carbon::parse($time);
+
+
+        $dateString = $request->visiting_date ?? Carbon::now();
+        $carbonDate = Carbon::createFromFormat('Y-m-d', $dateString);
+
+        $visitors = Visitor::whereBetween('visiting_time', [$startTime->format('h:i'), $startTime->addMinutes(15)->format('h:i')])->whereDate('visiting_date', $carbonDate)->where('department_id', $request->department_id)->get();
+
+
+        if (count($visitors) > 0) {
+            return sendError("Sorry selected time is already reserved", [], 403);
+        } else {
+            return sendResponse(null, 'Time slot is avaiable');
+        }
+    }
+
 
     public function dashboard()
     {
-   
+
         $total = Visitor::query()->where('user_id', Auth::guard('vms_api')->User()->id)->whereIn('status', [1, 2])->count();
         $requests = Visitor::query()->where(['user_id' =>  Auth::guard('vms_api')->User()->id, 'status' => 2])->count();
         $approved = Visitor::query()->where(['user_id' =>  Auth::guard('vms_api')->User()->id, 'status' => 3])->count();
@@ -137,6 +159,4 @@ class VisitorController extends Controller
     {
         //
     }
-
-   
 }
