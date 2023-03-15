@@ -1,0 +1,13 @@
+{
+    "name": "EIdentity",
+    "alias": "eidentity",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\EIdentity\\Providers\\EIdentityServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

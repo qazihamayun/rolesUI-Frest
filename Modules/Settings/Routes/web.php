@@ -17,7 +17,10 @@ Route::prefix('settings')->group(function() {
 
     Route::prefix('my-apps')->group(function (){
 
-        Route::get('/', [\Modules\Settings\Http\Controllers\MyAppsController::class, 'index'])->name('settings.my-apps.list')->middleware('permission:apps.view');
+
+        Route::get('/', [\Modules\Settings\Http\Controllers\MyAppsController::class, 'index'])
+            ->name('settings.my-apps.list')
+            ->middleware('permission:apps.view');
 
         Route::group(['middleware' => ['permission:apps.create']], function(){
             Route::get('create', [\Modules\Settings\Http\Controllers\MyAppsController::class, 'create'])->name('settings.my-apps.create');

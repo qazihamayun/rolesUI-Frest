@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\EIdentity\Entities\Employees;
 use Modules\IncidentReporting\Entities\Incident;
 use Modules\IncidentReporting\Entities\SpectrumAssignment;
 use Modules\SupplyChain\Entities\Contractor;
@@ -103,4 +104,7 @@ class Company extends Model
     }
 
 
+    public function employees(){
+        return $this->hasMany(Employees::class,'department_id','id');
+    }
 }

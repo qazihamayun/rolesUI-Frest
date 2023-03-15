@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [\App\Http\Controllers\HomeController::class, 'index'])->name('app.landing-screen');
 
+ 
+
+
+
 Auth::routes();
 
 Route::post('custom-authenticate', [\App\Http\Controllers\Auth\LoginController::class, 'customAuthenticate'])->name('custom-authenticate');

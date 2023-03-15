@@ -1,5 +1,5 @@
 {{--@extends('layouts.'.config('settings.active_layout'))--}}
-@extends('layouts.restricted_layout')
+@extends('layouts.'.config('eidentity.active_layout'))
 @php $app_id = config('settings.app_id') @endphp
 
 
@@ -63,32 +63,23 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="alert alpha-danger border-0">
-                                            <div class="form-group">
-                                                {!! Form::label('current_password', 'Current Password ', ['class' => 'form-label req']) !!}
-                                                <span class="help">@if(session()->has('errors')) {!! session()->get('errors')->first('current_password') !!} @endif</span>
-                                                <input type="password" name="current_password" id="current_password" class="form-control" required>
-                                                <span class="-help text-primary">Please provide your current password to save changes</span>
-                                            </div>
+                                        <div class="form-group">
+                                            {!! Form::label('current_password', 'Current Password ', ['class' => 'form-label req']) !!}
+                                            <span class="help">@if(session()->has('errors')) {!! session()->get('errors')->first('current_password') !!} @endif</span>
+                                            <input type="password" name="current_password" id="current_password" class="form-control" required>
+                                            <span class="-help text-primary">Please provide your current password to save changes</span>
                                         </div>
                                     </div>
                                 </div>
 
-
-
-
-
-
-
-
                                 <div class="row">
                                     <div class="col-12">
 
-                                        <button class="btn btn-danger btn-sm">
+                                        <button class="btn btn-danger">
                                             <i class="icon-undo mr-1"></i> Reset
                                         </button>
 
-                                        <button type="submit" class="btn btn-info btn-sm">
+                                        <button type="submit" class="btn btn-success">
                                             <i class="icon-database-check mr-1"></i> Update Password
                                         </button>
 
