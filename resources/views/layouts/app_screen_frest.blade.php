@@ -91,7 +91,7 @@
             <!-- Menu -->
 
 
-<<<<<<< Updated upstream
+
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
             <div class="app-brand demo">
                 <a href="{{route('home')}}" class="app-brand-link">
@@ -99,6 +99,7 @@
                         <img src="{{asset('assets/site-images/logo.png')}}" width="150">
                     </span>
                 </a>
+
 
 
                     {{-- <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -242,6 +243,7 @@
             <div class="layout-page">
                 <!-- Navbar -->
 
+
                 <nav class="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme"
                     id="layout-navbar">
                     <div class="container-fluid">
@@ -268,6 +270,7 @@
 
                             <ul class="navbar-nav flex-row align-items-center ms-auto">
                                 {{--
+
 
 
                             <!-- Language -->
@@ -650,6 +653,7 @@
                             </li>
                             <!--/ Notification -->
 
+
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -666,11 +670,13 @@
 
                                                         <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="rounded-circle" />
 
+
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <span
                                                             class="fw-semibold d-block lh-1">{{ auth()->user()->name }}</span>
                                                         {{--                                                    <small>Admin</small> --}}
+
 
                                                     </div>
                                                 </div>
@@ -698,6 +704,7 @@
                                             <span class="align-middle">Change Password</span>
                                         </a>
                                     </li>
+
 
 
                                         <li>
@@ -778,6 +785,7 @@
                                     </span>
                                 @endif
 
+
                             @endif
 
                             {{ $title ?? '' }}
@@ -810,6 +818,8 @@
                         </div>
 
 
+
+
                         @yield('content')
 
 
@@ -840,11 +850,25 @@
                             <h3 class="text-center an-initiative-on">An Initiative of</h3>
                             <img src="{{asset('assets/site-images/logo-bottom.png')}}" width="300"/>
                         </div>
+
                     </div>
-                </footer>
-                <!-- / Footer -->
+                    <!-- / Content -->
+
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme bottom-border-line">
+                        <div
+                            class="container-fluid d-flex flex-wrap justify-content-center py-2 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                                <h3 class="text-center an-initiative-on">An Initiative of</h3>
+                                <img src="{{ asset('assets/site-images/logo-bottom.png') }}" width="300" />
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
+
 
                 <div class="content-backdrop fade"></div>
+
 
             </div>
             <!-- / Layout page -->

@@ -46,7 +46,6 @@ return [
             'driver' => 'session',
             'provider' => 'vms_users',
 
-        ],
 
         'vms_api' => [
             'driver' => 'jwt',
