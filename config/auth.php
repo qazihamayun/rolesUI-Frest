@@ -48,6 +48,11 @@ return [
             'driver' => 'jwt',
             'provider' => 'vms_users',
         ],
+
+        'eidentity_api' => [
+            'driver' => 'jwt',
+            'provider' => 'eidentity_employees',
+        ],
     ],
 
     /*
@@ -75,6 +80,11 @@ return [
         'vms_users' => [
             'driver' => 'eloquent',
             'model' => \Modules\Vms\Entities\VisitorRegistration::class,
+        ],
+
+        'eidentity_employees' => [
+            'driver' => 'eloquent',
+            'model' => \Modules\EIdentity\Entities\Employees::class,
         ],
 
         // 'users' => [
@@ -107,6 +117,12 @@ return [
         ],
         'vms_user' => [
             'provider' => 'vms_users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'eidentity_employee' => [
+            'provider' => 'eidentity_employees',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
