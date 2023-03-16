@@ -32,12 +32,12 @@ class VmsController extends Controller
     public function index()
     {
 
-        $requested = Visitor::query()->where(['status' => 2,'department_id'=>auth()->user()->company_id])->count();
-        $reject = Visitor::query()->where(['status' => 4,'department_id'=>auth()->user()->company_id])->count();
-        $accept = Visitor::query()->where(['status' => 3,'department_id'=>auth()->user()->company_id])->count();
-        $visited = Visitor::query()->where(['status' => 1,'department_id'=>auth()->user()->company_id])->count();
+        $requested = Visitor::query()->where(['status' => 2, 'department_id' => auth()->user()->company_id])->count();
+        $reject = Visitor::query()->where(['status' => 4, 'department_id' => auth()->user()->company_id])->count();
+        $accept = Visitor::query()->where(['status' => 3, 'department_id' => auth()->user()->company_id])->count();
+        $visited = Visitor::query()->where(['status' => 1, 'department_id' => auth()->user()->company_id])->count();
 
-        $total = Visitor::query()->count();
+        $total = Visitor::query()->where('department_id', auth()->user()->company_id)->count();
 
 
         // get Current Year Info/
@@ -125,6 +125,4 @@ class VmsController extends Controller
     {
         //
     }
-
 }
-

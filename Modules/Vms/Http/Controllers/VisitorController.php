@@ -53,19 +53,9 @@ class VisitorController extends Controller
     {
 
         if ($request->ajax()) {
-            $modelData = Visitor::query()->with(['user', 'department'])->has('user');
+            $modelData = Visitor::query()->where('department_id', auth()->user()->company_id)->with(['user'])->has('user');
             $modelData->when($request->has('status'), function ($q) use ($request) {
                 return $q->whereIn('status', explode(",", $request->status));
-            });
-
-            //query For Gate Status 
-            $modelData->when(Auth::user()->hasRole('Computer operator'), function ($q) {
-                return $q->where('creator_id', Auth::User()->id);
-            });
-
-            //query For visitor Status 
-            $modelData->when(Auth::user()->hasRole('visitor'), function ($q) {
-                return $q->where('user_id', Auth::User()->id);
             });
 
             $modelData->orderBy('created_at',  'desc');
@@ -119,17 +109,16 @@ class VisitorController extends Controller
     {
 
 
-        // $validator = Validator::make($request->all(), [
-        //     'department_id' => 'required',
-        //     'gate_id' => 'required',
-        //     'cnic' => 'required',
-        // ]);
-        // if ($validator->fails()) {
-
-        //     Alert::toast('The enter required input  ', 'error')->timerProgressBar();
-        //     return redirect()->back();
-        // }
-
+        $validator = Validator::make($request->all(), [
+            'department_id' => 'required',
+            'name' => 'required',
+            'gate_id' => 'required',
+            'cnic' => 'required',
+        ]);
+        if ($validator->fails()) {
+            Session::flash('error', 'Please Validate Input');
+            return redirect()->back();
+        }
 
         $user = VisitorRegistration::where('cnic', $request->cnic)->first();
         if (!$user) {
@@ -139,7 +128,7 @@ class VisitorController extends Controller
             $input['email'] = $request->cnic;
             $input['type'] = 'visitor';
             $user = VisitorRegistration::create($input);
-            // $user->assignRole('visitor');
+            
             if ($request->has('profile')) {
                 if (!empty($request->profile)) {
                     $user->addMediaFromBase64($request->profile)->usingFileName('user_proifle_' . time() . '.png')->toMediaCollection('user_profile');
@@ -242,7 +231,6 @@ class VisitorController extends Controller
         $visitor->update($request->all());
         // $qr = QrCode::size(100)->generate(base64_encode($visitor->qrcode ?? $visitor->id));
         return sendResponse($visitor);
-
     }
 
 
