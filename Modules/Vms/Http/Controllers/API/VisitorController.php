@@ -27,7 +27,7 @@ class VisitorController extends Controller
 
 
         $dateString = $request->visiting_date ?? Carbon::now();
-        $carbonDate = Carbon::createFromFormat('Y-m-d', $dateString);
+        $carbonDate = Carbon::createFromFormat('Y/m/d', $dateString);
 
         $visitors = Visitor::whereBetween('visiting_time', [$startTime->format('h:i'), $startTime->addMinutes(15)->format('h:i')])->whereDate('visiting_date', $carbonDate)->where('department_id', $request->department_id)->get();
 
