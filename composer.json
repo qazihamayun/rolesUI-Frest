@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -15,10 +18,8 @@
         "laravelcollective/html": "^6.3",
         "milon/barcode": "^9.0",
         "nwidart/laravel-modules": "^9.0",
-
         "php-open-source-saver/jwt-auth": "^2.1",
-        "simplesoftwareio/simple-qrcode": "^4.2",
-
+        "simplesoftwareio/simple-qrcode": "~4",
         "spatie/laravel-medialibrary": "^10.4.0",
         "yajra/laravel-datatables": "9.0",
         "yajra/laravel-datatables-oracle": "10.0"
@@ -42,7 +43,6 @@
         "files": [
             "app/Helpers/general_functions.php"
         ]
-
     },
     "autoload-dev": {
         "psr-4": {
