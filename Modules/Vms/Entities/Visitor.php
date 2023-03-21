@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Visitor extends Model
 {
@@ -15,6 +16,11 @@ class Visitor extends Model
     protected $appends = ['status_text', 'department_name', 'gate_name', 'visitor_name', 'visit_to_name'];
     protected $connection = "vms";
 
+
+    protected function visitingDate(): Attribute
+    {
+        return Attribute::make(get: fn ($value, $attributes) => Carbon::create($value)->format("m/d/Y"));
+    }
 
 
 
