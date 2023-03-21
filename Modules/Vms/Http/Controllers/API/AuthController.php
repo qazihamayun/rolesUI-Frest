@@ -53,7 +53,7 @@ class AuthController extends Controller
     private function generateToken(VisitorRegistration $user, $token = null): JsonResponse
     {
         // Revoke previously generated tokens
-        $user->tokens()->delete();
+        // $user->tokens()->delete();
 
         // $user->access_token = $user->createToken('mobile-app')->plainTextToken;
         $user->access_token  = $token;
