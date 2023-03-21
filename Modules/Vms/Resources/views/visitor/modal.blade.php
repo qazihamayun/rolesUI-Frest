@@ -242,19 +242,19 @@
                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>Mobile #</th>
-                                        <td>${modelData?.user?.mobile}</td>
+                                        <td>${modelData?.user?.mobile  || 'N/A'}</td>
                                     </tr>
 
                                     <tr>
                                         <th>Department</th>
-                                        <td>${modelData?.department_name}</td>
+                                        <td>${modelData?.department_name  || 'N/A'}</td>
                                     </tr>
-                                    <tr><th>Gate</th><td>${ modelData?.gate_name}</td></tr>
-                                    <tr><th>License_no</th><td>${ modelData?.license_no}</td></tr>
-                                    <tr><th>Qrcode</th><td>${ modelData?.qrcode}</td></tr>
+                                    <tr><th>Gate</th><td>${ modelData?.gate_name  || 'N/A'}</td></tr>
+                                    <tr><th>Vehicle No</th><td>${ modelData?.vechical_no || 'N/A'}</td></tr>
+                                    <tr><th>Qrcode</th><td>${ modelData?.qrcode || 'N/A'}</td></tr>
                                     <tr><th>Purpose</th><td>${ modelData?.purpose ? modelData?.purpose : 'N/A'}</td></tr>
                                     <tr><th>Visiting date</th><td>${ modelData?.visiting_date ? modelData?.visiting_date : 'N/A'}</td></tr>
-                                    <tr><th>Visiting Time</th><td>${ modelData?.visiting_time}</td></tr>
+                                    <tr><th>Visiting Time</th><td>${ modelData?.visiting_time || 'N/A'}</td></tr>
                                 </table>
                             </div>
                         </div>
