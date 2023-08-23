@@ -1,6 +1,10 @@
 <?php
 
+namespace Modules\EIdentity\Http\Controllers\API;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/eidentity', function (Request $request) {
-    return $request->user();
+
+Route::prefix('eidentity/v1')->group(function () {
+    Route::post('login', [AuthController::class, 'login']);
 });

@@ -35,6 +35,16 @@
                                                                                                                                                                                                                                                                                 <img src="" width="140" height="150" class="rounded-start" alt="View Sales" data-app-light-img="illustrations/prize-light.png" data-app-dark-img="illustrations/prize-dark.png">
                                                                                                                                                                                                                                                                             </div> -->
                 </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <h4 class=" text-primary mb-2 pt-4 pb-1">Department Visit</h4>
+
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class=" text-primary mb-2 pt-4 pb-1">{{ $visited }}</h4>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -373,4 +383,3 @@
     })();
 </script>
 @endpush
-

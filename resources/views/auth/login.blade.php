@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
-    data-assets-path="{{ asset('assets/') }}" data-template="horizontal-menu-template">
+<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="{{ asset('assets/') }}" data-template="horizontal-menu-template">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>{{ env('APP_NAME') }}</title>
     <meta name="description" content="" />
@@ -15,9 +13,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
     <!-- Icons -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
@@ -26,8 +22,7 @@
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/theme-default.css') }}"
-        class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
 
     <!-- Vendors CSS -->
@@ -64,63 +59,47 @@
                         <div class="app-brand justify-content-center">
                             <a href="/" class="app-brand-link gap-2">
                                 <span class="app-brand-text demo h3 mb-0 fw-bold">
-                                    <img src="{{ asset('assets/site-images/logo.png') }}" width="230">
+                                    <img src="{{asset('assets/site-images/logo.png')}}" width="230">
                                 </span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        @if (session()->has('error'))
-                            <div class="alert alert-danger">
-                                {{ session()->get('error') }}
-                            </div>
+                        @if(session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error') }}
+                        </div>
                         @endif
-
-
-                        <form id="formAuthentication" class="mb-3" action="{{ route('custom-authenticate') }}"
-                            method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('custom-authenticate') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="email" name="username"
-                                    placeholder="Enter your email or username" autofocus />
+                                <input type="text" class="form-control" id="email" name="username" placeholder="Enter your email or username" autofocus />
                             </div>
 
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Password</label>
-                                    {{-- <a href="auth-forgot-password-basic.html">
+                                    {{--<a href="auth-forgot-password-basic.html">
                                   <small>Forgot Password?</small>
-                                </a> --}}
+                                </a>--}}
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
+                                    <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>
-
-
                             <div class=" row mb-3">
                                 <div class="col-md-5" style="margin-top: 8px">
                                     <div class="form-check">
-                                        <input class="form-check-input" name="is_visitor_checked" value="1"
-                                            type="checkbox" id="is_visitor_checked" />
-                                        <label class="form-check-label" for="is_visitor_checked"> Are you Visitor?
-                                        </label>
+                                        <input class="form-check-input" name="is_visitor_checked" value="1" type="checkbox" id="is_visitor_checked" />
+                                        <label class="form-check-label" for="is_visitor_checked"> Are you Visitor?</label>
                                     </div>
-
-
                                 </div>
                                 <div class="col-md-7">
-
                                     <a class="btn btn-link" href="{{ route('visitor.register.view') }}">
                                         {{ __('Register Self as Visitor') }}
                                     </a>
-
                                 </div>
-
-
                             </div>
                             {{--                        <div class="mb-3"> --}}
                             {{--                            <div class="form-check"> --}}
@@ -129,11 +108,9 @@
                             {{--                            </div> --}}
                             {{--                        </div> --}}
                             <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100 bg-green-new" type="submit">Sign
-                                    in</button>
+                                <button class="btn btn-primary d-grid w-100 bg-green-new" type="submit">Sign in</button>
                             </div>
                         </form>
-
 
                         {{-- <p class="text-center">
                       <span>New on our platform?</span>
@@ -167,20 +144,16 @@
 
                 <!-- Footer -->
                 <footer class="content-footer footer bg-footer-theme mt-4">
-                    <div
-                        class="container-xxl d-flex flex-wrap justify-content-center py-2 flex-md-row flex-column mb-2 mb-md-0">
+                    <div class="container-xxl d-flex flex-wrap justify-content-center py-2 flex-md-row flex-column mb-2 mb-md-0">
                         <div class="mb-2 mb-md-0">
                             <h3 class="text-center an-initiative-on">An Initiative of</h3>
-                            <img src="{{ asset('assets/site-images/logo-bottom.png') }}" width="300" />
+                            <img src="{{asset('assets/site-images/logo-bottom.png')}}" width="300" />
                         </div>
-
                     </div>
                 </footer>
                 <!-- / Footer -->
 
             </div>
-
-
         </div>
     </div>
 

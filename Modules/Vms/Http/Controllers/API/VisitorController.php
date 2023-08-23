@@ -73,9 +73,8 @@ class VisitorController extends Controller
     {
 
         $query = Visitor::query();
-        if ($request->has('user_id')) {
-            $query->where('user_id', Auth::guard('vms_api')->User()->id);
-        }
+
+        $query->where('user_id', Auth::guard('vms_api')->User()->id);
         if ($request->has('status')) {
             $query->where('status', $request->status);
         }
