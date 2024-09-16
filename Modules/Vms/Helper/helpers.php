@@ -24,9 +24,11 @@ function sendResponse($result, $message = null)
 {
     $response = [
         'success' => true,
-        'data'    => $result,
     ];
 
+    if (!empty($result)) {
+        $response['data'] = $result;
+    }
     if (!empty($message)) {
         $response['message'] = $message;
     }
@@ -86,6 +88,3 @@ function customButton($model, $permission, $route = null, $isShowView = false)
         '</div>
 </div>' : null;
 }
-
-
-

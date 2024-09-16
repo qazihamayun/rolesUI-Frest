@@ -20,4 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('eidentity/v1')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
+    Route::post('resend-otp', [AuthController::class, 'sendResetCode']);
+    Route::post('verify-otp', [AuthController::class, 'otpVerification']);
+    Route::post('change-password', [AuthController::class, 'changePassword']);
 });
